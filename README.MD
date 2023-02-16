@@ -1,5 +1,3 @@
-Plugins that extend maven. 
+# Windows Launcher Modifier Plugin
 
-These plugins are used to build ivy-core projects.
-
-CI: https://jenkins.ivyteam.io/job/ivy-maven-plugins/job/master/
+This plugin is used to modify the Axon Ivy Engine Launcher for Windows.
