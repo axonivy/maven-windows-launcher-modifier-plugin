@@ -14,7 +14,7 @@ pipeline {
   }
 
   stages {
-    stage('build and deploy') {
+    stage('build') {
       steps {
         script {          
           def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify';

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ArrayUtils;
@@ -17,6 +19,8 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 @Mojo(name = ModifyStringResourcesMojo.GOAL, requiresProject = false)
 public class ModifyStringResourcesMojo extends AbstractMojo {
+
+  private static final Collector<CharSequence, ?, String> COMMA_JOINER = Collectors.joining(",");
 
   public static final String GOAL = "modify-string-resources";
 
@@ -95,8 +99,8 @@ public class ModifyStringResourcesMojo extends AbstractMojo {
 
   private List<File> getFiles(FileSet fs) {
     File directory = new File(fs.getDirectory());
-    String includes = StringUtils.join(fs.getIncludes(), ",");
-    String excludes = StringUtils.join(fs.getExcludes(), ",");
+    String includes = fs.getIncludes().stream().collect(COMMA_JOINER);
+    String excludes = fs.getExcludes().stream().collect(COMMA_JOINER);
     try {
       List<File> files = org.codehaus.plexus.util.FileUtils.getFiles(directory, includes, excludes);
       if (files.isEmpty()) {
