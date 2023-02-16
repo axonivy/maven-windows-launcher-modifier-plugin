@@ -1,3 +1,3 @@
-# Maven Plugins
+# Windows Launcher Modifier Plugin
 
-Helper maven plugins to build the Axon Ivy Platform 
+This plugin is used to modify the Axon Ivy Engine Launcher for Windows.
