@@ -100,7 +100,7 @@
           <artifactId>maven-plugin-plugin</artifactId>
           <version>3.11.0</version>
           <configuration>
-			  <goalPrefix>windows-launcher-modifier-plugin</goalPrefix>
+			  <goalPrefix>windows-launcher-modifier</goalPrefix>
 		  </configuration>
         </plugin>
         <plugin>
